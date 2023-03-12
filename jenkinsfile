@@ -1,19 +1,21 @@
-pipeline 
+pipeline
 {
     agent any
     stages
     {
-        stage ('continuousdwonload')
-    }
-    steps
-    {
-        git 'https://github.com/Girish9823/firstrepo.git'
-    }
-        stage ('continuosbuild')
+        stage('ContinuousDownload')
         {
-    steps 
-    {
-        echo 'build'
-    }        
+            steps
+            {
+                git 'https://github.com/atif10iqbal/JenkinsProject.git'
+            }
         }
+        stage('ContinuousBuild')
+        {
+            steps
+            {
+                echo 'mvn package'
+            }
+        }
+    }
 }
