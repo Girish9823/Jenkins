@@ -16,8 +16,10 @@ pipeline
             {
                 script {
                 try {
-             sh '''ssh  centos@13.233.165.69 ls -la
+             sh '''ssh  centos@13.233.165.69
 '''
+                input 'admin'
+                sh 'la -la'
                 }
                 catch (Exception e1){
                     echo 'error'
