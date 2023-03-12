@@ -16,9 +16,9 @@ pipeline
             {
                 script {
                 try {
-             sh '''ssh  centos@13.233.165.69
-'''
-                input 'admin'
+            withCredentials([sshUserPrivateKey(credentialsId: 'jen', keyFileVariable: 'j', passphraseVariable: 'p', usernameVariable: 'u')]) {
+    // some block
+}
                 sh 'la -la'
                 }
                 catch (Exception e1){
