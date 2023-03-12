@@ -20,15 +20,17 @@ pipeline
     sshagent(['jen']) {
     sh 'ssh -o StrictHostKeyChecking=no ubuntu@13.233.165.69'
     sh 'git clone https://github.com/Girish9823/Jenkins.git'
+    mail bcc: '', body: 'docker container is running', cc: '', from: '', replyTo: '', subject: 'docker success', to: 'bgirish555@gmail.com'
   }
 }
-            mail bcc: '', body: 'docker container is running', cc: '', from: '', replyTo: '', subject: 'docker success', to: 'bgirish555@gmail.com'
-}
-                }
-                catch (Exception e1){
+                catch (Exception e1)
+                {
                     echo 'error'
+                    exit (1)
                 }
             }
             }
         }
+    }
+}
         
