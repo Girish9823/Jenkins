@@ -18,7 +18,6 @@ pipeline
                 try {
             withCredentials([sshUserPrivateKey(credentialsId: 'jen', keyFileVariable: 'j', passphraseVariable: 'p', usernameVariable: 'u')]) {
     // some block
-            sh 'docker run --name j2 -d -P tomcat'
             mail bcc: '', body: 'docker container is running', cc: '', from: '', replyTo: '', subject: 'docker success', to: 'bgirish555@gmail.com'
 }
                 }
