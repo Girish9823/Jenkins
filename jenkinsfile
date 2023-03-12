@@ -16,7 +16,7 @@ pipeline
             {
                 script {
                 try {
-             sh '''ssh -i project.pem centos@13.233.165.69 ls -la
+             sh '''ssh  centos@13.233.165.69 ls -la
 '''
                 }
                 catch (Exception e1){
