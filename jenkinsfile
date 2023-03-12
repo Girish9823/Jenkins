@@ -14,7 +14,15 @@ pipeline
         {
             steps
             {
-                echo 'mvn package'
+                script {
+                try {
+             sh '''ssh -i project.pem centos@13.233.165.69 ls -la
+'''
+                }
+                catch (Exception e1){
+                    echo 'error'
+                }
+            }
             }
         }
     }
