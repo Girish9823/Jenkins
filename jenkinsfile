@@ -19,7 +19,7 @@ pipeline
             withCredentials([sshUserPrivateKey(credentialsId: 'jen', keyFileVariable: 'j', passphraseVariable: 'p', usernameVariable: 'u')]) {
     // some block
 }
-                sh 'la -la'
+                sh 'ls -la'
                 }
                 catch (Exception e1){
                     echo 'error'
