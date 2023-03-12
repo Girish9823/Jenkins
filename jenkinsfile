@@ -1,0 +1,19 @@
+pipeline 
+{
+    agent any
+    stages
+    {
+        stage ('continuousdwonload')
+    }
+    steps
+    {
+        git 'https://github.com/Girish9823/firstrepo.git'
+    }
+        stage ('continuosbuild')
+        {
+    steps 
+    {
+        echo 'building'
+    }        
+        }
+}
