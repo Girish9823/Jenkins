@@ -7,7 +7,7 @@ pipeline
         {
             steps
             {
-                git 'https://github.com/atif10iqbal/JenkinsProject.git'
+                git 'https://github.com/Girish9823/Jenkins.git'
             }
         }
         stage('runningdocker')
@@ -16,8 +16,12 @@ pipeline
             {
                 script {
                 try {
-            withCredentials([sshUserPrivateKey(credentialsId: 'jen', keyFileVariable: 'j', passphraseVariable: 'p', usernameVariable: 'u')]) {
-    // some block
+           
+    sshagent(['jen']) {
+    sh 'ssh -o StrictHostKeyChecking=no ubuntu@13.233.165.69'
+    sh 'docker build -t mydocker .'
+  }
+}
             mail bcc: '', body: 'docker container is running', cc: '', from: '', replyTo: '', subject: 'docker success', to: 'bgirish555@gmail.com'
 }
                 }
@@ -27,5 +31,4 @@ pipeline
             }
             }
         }
-    }
-}
+        
