@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/ravi2krishna/ecomm.git'
+            }
+        }
+stage('Build Docker'){
+            steps{
+                script{
+                    sh '''
+                    echo 'Buid Docker Image'
+                    docker build -t ecomm/cicd-e2e:${BUILD_NUMBER} var/jenkins_home/workspace/pro
+                    '''
+                }
+            }
+        }
+    }
+}
