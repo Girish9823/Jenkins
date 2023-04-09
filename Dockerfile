@@ -1,3 +1,0 @@
-FROM tomcat
-LABEL MAINTAINER="Girish"
-EXPOSE 80
